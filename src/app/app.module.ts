@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { DetailsComponent } from './views/details/details.component';
-import { CardComponent } from './components/card/card.component';
+import { QueryBuilderComponentComponent } from './components/query-builder-component/query-builder-component.component';
+import { MovieGalleryComponentComponent } from './components/movie-gallery-component/movie-gallery-component.component';
 import { PaginatorComponentComponent } from './components/paginator-component/paginator-component.component';
 
 
@@ -15,8 +16,10 @@ import { PaginatorComponentComponent } from './components/paginator-component/pa
     AppComponent,
     HomeComponent,
     DetailsComponent,
-    CardComponent,
-    PaginatorComponentComponent,
+
+    QueryBuilderComponentComponent,
+     MovieGalleryComponentComponent,
+     PaginatorComponentComponent,
     
   ],
   imports: [
