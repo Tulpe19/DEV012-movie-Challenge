@@ -18,8 +18,8 @@ import { PaginatorComponentComponent } from './components/paginator-component/pa
     DetailsComponent,
 
     QueryBuilderComponentComponent,
-     MovieGalleryComponentComponent,
-     PaginatorComponentComponent,
+    MovieGalleryComponentComponent,
+    PaginatorComponentComponent,
     
   ],
   imports: [
