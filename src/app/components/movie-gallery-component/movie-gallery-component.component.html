@@ -1,1 +1,8 @@
-<p>movie-gallery-component works!</p>
+<h2>Movies</h2>
+<ul>
+    <li *ngFor="let movie of movies">
+        <img src="" alt="">
+        <h4>{{movie.name}}</h4>
+        <p>{{movie.date}}</p>
+    </li>
+</ul>
