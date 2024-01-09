@@ -8,6 +8,8 @@ import { DetailsComponent } from './views/details/details.component';
 import { QueryBuilderComponentComponent } from './components/query-builder-component/query-builder-component.component';
 import { MovieGalleryComponentComponent } from './components/movie-gallery-component/movie-gallery-component.component';
 import { PaginatorComponentComponent } from './components/paginator-component/paginator-component.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -24,7 +26,9 @@ import { PaginatorComponentComponent } from './components/paginator-component/pa
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

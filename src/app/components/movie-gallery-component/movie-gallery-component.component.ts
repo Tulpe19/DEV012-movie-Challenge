@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ResponseApi } from 'src/app/interface';
+import { PeliculasMock } from 'src/assets/mock-data';
+
 
 @Component({
   selector: 'app-movie-gallery-component',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieGalleryComponentComponent implements OnInit {
 
-  constructor() { }
+  responseAPI: ResponseApi;
+
+  constructor() { 
+    this.responseAPI = PeliculasMock;
+  }
 
   ngOnInit(): void {
   }

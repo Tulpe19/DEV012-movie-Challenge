@@ -1,8 +1,13 @@
-<h2>Movies</h2>
-<ul>
-    <li *ngFor="let movie of movies">
-        <img src="" alt="">
-        <h4>{{movie.name}}</h4>
-        <p>{{movie.date}}</p>
+<section class="movieGallerySection">
+  <ul>
+    <li *ngFor="let movieGallery of responseAPI.results">
+      <mat-card>
+        <mat-card-content>
+            <img [src]="" alt="posterMovie">
+            <h3>{{movieGallery.title}}</h3>
+            <time [dateTime]="movieGallery.release_date">{{movieGallery.release_date}}</time>
+        </mat-card-content>
+      </mat-card>
     </li>
-</ul>
+  </ul>
+</section>
