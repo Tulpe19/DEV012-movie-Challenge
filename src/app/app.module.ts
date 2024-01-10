@@ -10,7 +10,7 @@ import { MovieGalleryComponentComponent } from './components/movie-gallery-compo
 import { PaginatorComponentComponent } from './components/paginator-component/paginator-component.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
-
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import {MatCardModule} from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

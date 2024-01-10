@@ -1,12 +1,17 @@
 <section class="movieGallerySection">
   <ul>
     <li *ngFor="let movieGallery of responseAPI.results">
-      <mat-card>
+      <mat-card class="cardsGallery">
+        <img mat-card-image [src]="" alt="posterMovie">
         <mat-card-content>
-            <img [src]="" alt="posterMovie">
-            <h3>{{movieGallery.title}}</h3>
-            <time [dateTime]="movieGallery.release_date">{{movieGallery.release_date}}</time>
+          <mat-card-title>{{movieGallery.title}}</mat-card-title>
+          <mat-card-subtitle>
+            <time>{{movieGallery.release_date}}</time>
+          </mat-card-subtitle>
         </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" >VIEW MORE</button>
+        </mat-card-actions>
       </mat-card>
     </li>
   </ul>

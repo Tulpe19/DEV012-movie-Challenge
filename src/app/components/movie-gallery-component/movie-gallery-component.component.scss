@@ -1,0 +1,28 @@
+.movieGallerySection {
+    width: 100%;
+    height: 100%;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+li {
+    list-style: none;
+}
+.cardsGallery {
+    width: 19rem;
+    height: 19rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+img {
+    width: 10rem;
+    height: 10rem;
+    padding-top: 1rem;
+    margin: none;
+}
+
