@@ -15,7 +15,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { BackToHomeComponentComponent } from './components/back-to-home-component/back-to-home-component.component';
 import { MovieDetailComponentComponent } from './components/movie-detail-component/movie-detail-component.component';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import { MovieDetailComponentComponent } from './components/movie-detail-compone
     MatCardModule,
     MatButtonModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
