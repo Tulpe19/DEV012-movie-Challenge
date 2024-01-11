@@ -12,6 +12,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { BackToHomeComponentComponent } from './components/back-to-home-component/back-to-home-component.component';
+import { MovieDetailComponentComponent } from './components/movie-detail-component/movie-detail-component.component';
 
 
 @NgModule({
@@ -23,6 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
     QueryBuilderComponentComponent,
     MovieGalleryComponentComponent,
     PaginatorComponentComponent,
+    BackToHomeComponentComponent,
+    MovieDetailComponentComponent,
     
   ],
   imports: [
@@ -31,7 +36,8 @@ import {MatSelectModule} from '@angular/material/select';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
