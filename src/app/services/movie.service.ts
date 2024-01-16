@@ -1,20 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, from, mergeMap} from 'rxjs';
 import { ResponseApi } from '../interface';
+import { PageEvent } from '@angular/material/paginator';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-
-  API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMDFhM2U4ZDg4MGVhYmExYjM3OTgwZTY5MWU2NjU3OCIsInN1YiI6IjY1Nzg3YmQ2ODlkOTdmMDBlMzc1OTM3YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.By9BSHjUwo1V8u14rY-s76sizKT4KpIzrqTT4BabX5U";
+  //Se crean propiedades de la clase
+  API_KEY = "201a3e8d880eaba1b37980e691e66578";
   ENDPOINT_BASE = "https://api.themoviedb.org/3";
-  URL_GENRE_MOVIES = "";
-  constructor(private httpClient: HttpClient) { }
 
-  public getData(){
-    const urlMovieGallery = this.httpClient.get(`${this.API_KEY} `)
+  public results$: Observable<ResponseApi>
+  public pageConfig$: BehaviorSubject<PageEvent>
 
+  constructor(private httpClient: HttpClient) {
+    this.pageConfig$ = new BehaviorSubject<PageEvent>({
+      pageIndex: 0, pageSize: 20,
+      length: 0
+    })
+    this.results$ = from(this.pageConfig$).pipe(mergeMap(pageEvent => this.getMovies(pageEvent.pageIndex + 1)))
   }
 
+  public getMovies(page: number): Observable<ResponseApi> {
+    console.log('getMovies', { page })
+    const urlMovieGallery = this.httpClient.get<ResponseApi>(`${this.ENDPOINT_BASE}/discover/movie?api_key=${this.API_KEY}&page=${page}`)
+    return urlMovieGallery
+  }
+
+  public setPageConfig(newPageConfig: PageEvent) {
+    console.log('setPageConfig', { newPageConfig })
+    this.pageConfig$.next(newPageConfig)
+  }
 }

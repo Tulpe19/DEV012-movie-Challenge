@@ -1,7 +1,7 @@
 <footer>
     <mat-paginator [length]="500"
-              [pageSize]="10"
-              [pageSizeOptions]="[10, 20]"
-              aria-label="Select page">
+              [pageSize]="20"
+              aria-label="Select page"
+              (page)="pageConfigChanged($event)">
 </mat-paginator>
 </footer>

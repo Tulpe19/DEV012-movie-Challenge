@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ResponseApi } from 'src/app/interface';
-import { PeliculasMock } from 'src/assets/mock-data';
+import { MovieService } from 'src/app/services/movie.service';
 
 
 @Component({
@@ -10,13 +10,22 @@ import { PeliculasMock } from 'src/assets/mock-data';
 })
 export class MovieGalleryComponentComponent implements OnInit {
 
-  responseAPI: ResponseApi;
+  responseAPI: ResponseApi = {
+    page: 0,
+    total_pages: 0,
+    total_results: 0,
+    results: []
+  };
 
-  constructor() { 
-    this.responseAPI = PeliculasMock;
+  constructor(movieService: MovieService) {
+    movieService.results$.subscribe((moviePage) => {
+      console.log({ moviePage })
+      this.responseAPI = moviePage
+    })
   }
 
   ngOnInit(): void {
+    
   }
 
 }
