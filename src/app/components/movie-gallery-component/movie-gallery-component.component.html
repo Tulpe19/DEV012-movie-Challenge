@@ -2,11 +2,11 @@
   <ul>
     <li *ngFor="let movieGallery of responseAPI.results">
       <mat-card class="cardsGallery">
-        <img mat-card-image [src]="" alt="posterMovie">
+        <img mat-card-image [src]="movieGallery.imgURL" [hidden]="!movieGallery.imgURL" alt="posterMovie">
         <mat-card-content>
           <mat-card-title>{{movieGallery.title}}</mat-card-title>
           <mat-card-subtitle>
-            <time>{{movieGallery.release_date}}</time>
+            <time>{{movieGallery.release_date || 'No release date record'}}</time>
           </mat-card-subtitle>
         </mat-card-content>
         <mat-card-actions>

@@ -17,15 +17,14 @@ export class MovieGalleryComponentComponent implements OnInit {
     results: []
   };
 
-  constructor(movieService: MovieService) {
-    movieService.results$.subscribe((moviePage) => {
-      console.log({ moviePage })
-      this.responseAPI = moviePage
-    })
-  }
+  constructor(public movieService: MovieService) {}
 
   ngOnInit(): void {
-    
+    this.movieService.results$.subscribe((moviePage) => {
+      console.log({ moviePage });
+      this.responseAPI = moviePage;
+    });
   }
+  
 
 }

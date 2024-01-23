@@ -8,6 +8,7 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./paginator-component.component.scss']
 })
 export class PaginatorComponentComponent implements OnInit {
+  
   constructor(
     public movieService: MovieService
   ) { }
@@ -17,6 +18,7 @@ export class PaginatorComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
 }
