@@ -1,0 +1,48 @@
+.sectionDetailsComponent {
+    max-height: 100%;
+    display: flex;
+}
+
+.containerTitle {
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+}
+
+time {
+    margin-top: 7px;
+    margin-left: 16px;
+}
+
+.rating-indicator {
+    background-color: #FF4081;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 3.5px;
+    margin-left: 50px;
+    width: fit-content; /* Ajusta según tu diseño */
+}
+
+.containerOverview {
+    background-color: #0F0F0F;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    color: #fff;
+    padding: 10px;
+}
+
+article {
+    padding-top: 30px;
+}
+img {
+    width: 15rem;
+    height: 20rem;
+    padding-top: 1rem;
+    margin: none;
+}
+
+

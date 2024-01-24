@@ -1,17 +1,19 @@
-<section *ngIf="movieDetail$ | async as movieDetail">
+<section class="sectionDetailsComponent" *ngIf="movieDetail$ | async as movieDetail">
     <figure>
-        <img src="" alt="Movie poster">
+        <img [src]="movieDetail.imgURL" alt="Movie poster">
     </figure>
     <article>
-        <div>
+        <div class="containerTitle">
             <h2>{{ movieDetail.title }}</h2>
-            <time>{{movieDetail.release_date}}</time>
+            <p class="rating-indicator">{{ movieDetail.vote_average}}</p>
         </div>
-        <div>
+        <div class="containerOverview">
             <ng-container *ngFor="let genre of movieDetail.genres">
-                {{ genre.name }}
+                {{ genre.name }} |
             </ng-container>
-            <p>{{movieDetail.overview}}</p>
+            <time>Runtime: {{movieDetail.runtime}}</time>
+            <time>Release date: {{movieDetail.release_date}}</time>
+            <p> {{movieDetail.overview}}</p>
         </div>
     </article>
 </section>

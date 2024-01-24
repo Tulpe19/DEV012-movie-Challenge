@@ -23,6 +23,7 @@ export class MovieService {
   private sortFilter$: BehaviorSubject<string> = new BehaviorSubject<string> ('');
   private fullRequestConfig$: Observable<MovieRequestConfig>;
 
+
   public results$: Observable<ResponseApi>;
 
   constructor(private httpClient: HttpClient) {
@@ -108,7 +109,17 @@ export class MovieService {
     const url = `${this.ENDPOINT_BASE}/movie/${movieId}`;
     const params = new HttpParams()
       .set('api_key', this.API_KEY)
-    return this.httpClient.get<MovieDetails>(url, { params })
+    return this.httpClient.get<MovieDetails>(url, { params }).pipe(
+      tap(movieDetails => {
+        const baseURL = this.imageBaseURL;
+        const imageSize = this.posterSizes[this.posterSizes.length - 2];
+        const posterPath = movieDetails.poster_path;
+
+        if (posterPath) {
+          movieDetails.imgURL = `${baseURL}${imageSize}${posterPath}`;
+        }
+      })
+    );
   }
 
 }
