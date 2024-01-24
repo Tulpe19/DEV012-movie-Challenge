@@ -1,39 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable, combineLatest, from, map, mergeMap, skipUntil, switchMap, tap} from 'rxjs';
-import { Genre, MovieRequestConfig, ResponseApi } from '../interface';
+import { Genre, MovieDetails, MovieRequestConfig, ResponseApi } from '../interface';
 import { PageEvent } from '@angular/material/paginator';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
-  //Se crean propiedades de la clase
+
   API_KEY = "201a3e8d880eaba1b37980e691e66578";
   ENDPOINT_BASE = "https://api.themoviedb.org/3";
 
-  private imageBaseURL: string | undefined
-  private posterSizes: string[] = []
+  private imageBaseURL: string | undefined;
+  private posterSizes: string[] = [];
 
   private pageConfig$ = new BehaviorSubject<PageEvent>({
     pageIndex: 0, pageSize: 20,
     length: 0
-  })
-  private genreFilter$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  private sortFilter$: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  private fullRequestConfig$: Observable<MovieRequestConfig>
+  });
+  private genreFilter$: BehaviorSubject<string> = new BehaviorSubject<string> ('');
+  private sortFilter$: BehaviorSubject<string> = new BehaviorSubject<string> ('');
+  private fullRequestConfig$: Observable<MovieRequestConfig>;
 
-  public results$: Observable<ResponseApi>
+  public results$: Observable<ResponseApi>;
 
   constructor(private httpClient: HttpClient) {
     this.fullRequestConfig$ = combineLatest({
       pageConfig: this.pageConfig$,
       sorting: this.sortFilter$,
       genre: this.genreFilter$
-    })
+    });
 
     
-
     this.results$ = this.fullRequestConfig$.pipe(
       switchMap(fullRequestConfig => {
         console.log('New request config', fullRequestConfig)
@@ -62,7 +61,7 @@ export class MovieService {
     return this.httpClient.get<any>(`${this.ENDPOINT_BASE}/configuration`, { params }).pipe(tap(response => {
       this.imageBaseURL = response.images.base_url
       this.posterSizes = response.images.poster_sizes
-    }))
+    }));
   }
   
   public getMovies(page: number): Observable<ResponseApi> {
@@ -72,7 +71,7 @@ export class MovieService {
   }
   
   public setPageConfig(newPageConfig: PageEvent) {
-    console.log('setPageConfig', { newPageConfig })
+    console.log('setPageConfig', { newPageConfig });
     this.pageConfig$.next(newPageConfig)
   }
 
@@ -86,13 +85,14 @@ export class MovieService {
     this.sortFilter$.next(sortBy);
   }
 
+
   public getMoviesWithFilterAndSort(page: number, genreId: string, sortBy: string): Observable<ResponseApi> {
-    console.log('movie request', { page, genreId, sortBy })
+    console.log('movie request', { page, genreId, sortBy });
     const url = `${this.ENDPOINT_BASE}/discover/movie`;
     let params = new HttpParams()
       .set('api_key', this.API_KEY)
       .set('page', page.toString())
-    if(genreId !== '') params = params.set('with_genres', genreId)
+    if(genreId !== '') params = params.set('with_genres', genreId);
     if(sortBy !== '') params = params.set('sort_by', sortBy);
     return this.httpClient.get<ResponseApi>(url, { params });
   }
@@ -103,6 +103,14 @@ export class MovieService {
       .set('api_key', this.API_KEY)
     return this.httpClient.get<{ genres: Genre[] }>(url, { params }).pipe(map(newGenreList => newGenreList.genres));
   }
+
+  public getMovieDetails(movieId: number): Observable<MovieDetails> {
+    const url = `${this.ENDPOINT_BASE}/movie/${movieId}`;
+    const params = new HttpParams()
+      .set('api_key', this.API_KEY)
+    return this.httpClient.get<MovieDetails>(url, { params })
+  }
+
 }
 
 

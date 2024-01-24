@@ -44,3 +44,24 @@ export interface MovieRequestConfig {
   sorting: string,
   genre: string, 
 }
+
+export interface MovieDetails {
+  backdrop_path: string | null,
+  budget: number,
+  genres: Genre [],
+  id: number,
+  imdb_id: string | null,
+  original_language: string,
+  original_title: string,
+  overview: string,
+  popularity: number,
+  poster_path: string | null,
+  release_date: string,
+  runtime: number,
+  status: string,
+  tagline: string,
+  title: string,
+  vote_average: number,
+  vote_count: number
+}
+

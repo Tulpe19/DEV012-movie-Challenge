@@ -25,6 +25,4 @@ export class MovieGalleryComponentComponent implements OnInit {
       this.responseAPI = moviePage;
     });
   }
-  
-
 }

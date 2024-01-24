@@ -9,9 +9,7 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class PaginatorComponentComponent implements OnInit {
   
-  constructor(
-    public movieService: MovieService
-  ) { }
+  constructor(public movieService: MovieService) { }
 
   pageConfigChanged(newPageConfig: PageEvent) {
     this.movieService.setPageConfig(newPageConfig)

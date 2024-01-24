@@ -1,7 +1,17 @@
-<section>
-    <img src="" alt="">
-    <div>
-        <h2></h2>
-        <p></p>
-    </div>
+<section *ngIf="movieDetail$ | async as movieDetail">
+    <figure>
+        <img src="" alt="Movie poster">
+    </figure>
+    <article>
+        <div>
+            <h2>{{ movieDetail.title }}</h2>
+            <time>{{movieDetail.release_date}}</time>
+        </div>
+        <div>
+            <ng-container *ngFor="let genre of movieDetail.genres">
+                {{ genre.name }}
+            </ng-container>
+            <p>{{movieDetail.overview}}</p>
+        </div>
+    </article>
 </section>
