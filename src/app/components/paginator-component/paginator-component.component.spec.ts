@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PaginatorComponentComponent } from './paginator-component.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+
 
 describe('PaginatorComponentComponent', () => {
   let component: PaginatorComponentComponent;
@@ -8,7 +10,8 @@ describe('PaginatorComponentComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PaginatorComponentComponent ]
+      declarations: [ PaginatorComponentComponent ],
+      providers: [ HttpClient, HttpHandler ]
     })
     .compileComponents();
 

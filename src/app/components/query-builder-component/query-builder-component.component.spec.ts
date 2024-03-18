@@ -2,13 +2,17 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QueryBuilderComponentComponent } from './query-builder-component.component';
 
+import { HttpClient, HttpHandler } from '@angular/common/http';
+
+
 describe('QueryBuilderComponentComponent', () => {
   let component: QueryBuilderComponentComponent;
   let fixture: ComponentFixture<QueryBuilderComponentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QueryBuilderComponentComponent ]
+      declarations: [ QueryBuilderComponentComponent ],
+      providers: [ HttpClient, HttpHandler ]
     })
     .compileComponents();
 
