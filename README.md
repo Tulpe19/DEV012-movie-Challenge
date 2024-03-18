@@ -1,27 +1,28 @@
-# Dev012MovieChallenge
+# Movie Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+## Índice
+1. [Preámbulo](#preámbulo)
+2. [Resumen del proyecto](#resumen-del-proyecto)
+3. [Tecnologías Principales](#Tecnologías-Principales)
+4. [Objetivos de Aprendizaje](#Objetivos-de-Aprendizaje)
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 1. Preámbulo
 
-## Code scaffolding
+La manera en que disfrutamos del cine ha evolucionado con la popularidad de los servicios de streaming. Este proyecto busca aprovechar la oportunidad de crear una experiencia utilizando datos de películas de The Movie Database API V3.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 2. Resumen del proyecto
 
-## Build
+El proyecto Movie Challenge tiene como objetivo desarrollar una página web para visualizar, filtrar y ordenar el catálogo de películas de The Movie Database API V3. Utilizando Angular v14, Angular Material, RxJS, TypeScript y otras tecnologías asociadas, se busca crear un catálogo general de películas con la posibilidad de personalización para usuarios con preferencias específicas. La aplicación se implementó y desplegó exitosamente en Vercel, aprovechando la integración con GitHub para una implementación eficiente y accesible. Este enfoque ofrece una experiencia optimizada para los usuarios finales respaldada por la capacidad de Vercel para gestionar aplicaciones web estáticas y dinámicas de manera efectiva.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 3. Tecnologías Principales:
+Angular v14: Elegido como el framework principal para la implementación, proporcionando una estructura sólida y convenciones definidas.
+Angular Material: Utilizado para diseñar la interfaz de usuario con componentes visuales como el filtro, el paginador y las tarjetas.
+RxJS: Empleado para el manejo de flujos de datos y observables, facilitando la programación reactiva en la aplicación.
+TypeScript: Lenguaje de programación fuertemente tipado, obligatorio si se elige Angular.
+Promesas, HTTP, Git/GitHub: Implementación de promesas para operaciones asíncronas, manejo de peticiones HTTP para interactuar con la API de The Movie Database, y control de versiones con Git/GitHub.
 
-## Running unit tests
+## 4. Objetivos de Aprendizaje:
+Se busca aplicar conocimientos en HTML semántico, CSS con flexbox y grid layout, pruebas unitarias y asíncronas, manejo de rutas, servicios, observables, y estilos de componentes en Angular. Además, se pretende aprender sobre TypeScript y su aplicación en el desarrollo Front-end.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
